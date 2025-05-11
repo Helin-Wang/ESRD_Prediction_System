@@ -56,24 +56,34 @@ with right_col:
             st.write(f"Probability of ESRD within 3 years: {1 - surv_func([3]):.2%}")
             st.write(f"Probability of ESRD within 5 years: {1 - surv_func([5]):.2%}")
             
-            #st.markdown("---")
-            
-            st.markdown("##### 📈 Predicted Survival Function")
+            # st.markdown("##### 📈 Predicted Survival Function")
             
             times = surv_func.x
             probs = surv_func(times)
 
+            # mask = times <= 10
+            # chart_data = pd.DataFrame({
+            #     "time": times[mask],
+            #     "Survival Probability": probs[mask]
+            # })
+            
+            # small_col1, _ = st.columns([10, 1])
+            # with small_col1:
+            #     st.line_chart(chart_data, x='time', y='Survival Probability')
+        
+            
+            st.markdown("##### 📈 Predicted Line chart of ESRD probability over time")
+
             mask = times <= 10
             chart_data = pd.DataFrame({
                 "time": times[mask],
-                "Survival Probability": probs[mask]
+                "ESRD Probability": [1-prob for prob in probs[mask]]
             })
             
             small_col1, _ = st.columns([10, 1])
             with small_col1:
-                st.line_chart(chart_data, x='time', y='Survival Probability')
-        
-            
+                st.line_chart(chart_data, x='time(year)', y='ESRD Probability')
+                    
             
                 
         except Exception as e:
