@@ -76,7 +76,7 @@ with right_col:
 
             mask = times <= 10
             chart_data = pd.DataFrame({
-                "time": times[mask],
+                "time(year)": times[mask],
                 "ESRD Probability": [1-prob for prob in probs[mask]]
             })
             
