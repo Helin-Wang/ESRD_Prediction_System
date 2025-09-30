@@ -5,3 +5,4 @@ catboost_info/*
 figures/*
 output/*
 web/*
+*.ipynb
