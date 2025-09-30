@@ -1,0 +1,7 @@
+models/*
+datasets/*
+catboost_info/*
+*.log
+figures/*
+output/*
+web/*
